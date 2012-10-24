@@ -13,7 +13,7 @@ e8 = codecs.getwriter('utf-8')(sys.stderr)
 if __name__ == '__main__':
     conn = sqlite3.connect(sys.argv[1])
     c = conn.cursor()
-    c.execute(u"""SELECT name FROM places_fts WHERE name MATCH '{0}*'""".format(sys.argv[2]))
+    c.execute(u"""SELECT id, name, type_id FROM places_fts WHERE name MATCH '{0}*'""".format(sys.argv[2]))
 
     # names = []
     for row in c:
