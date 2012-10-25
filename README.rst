@@ -5,6 +5,7 @@ MML:n nimistöaineisto ja automaattitäydennys sqlitellä.
 
 Käyttöohjeet
 ------------
+Komennot tottelevat -h ja --help -parametrejä.
 
 ::
     
@@ -13,6 +14,12 @@ Käyttöohjeet
     # Tee haku (full-text -indeksi)
     ./paikkis search hakusana(t)
 
+
+Web-API:
+::
+
+    # Käynnistys (tietokanta täytyy olla ensin luotuna)
+    ./webapp.py
 
 TODO
 ----
