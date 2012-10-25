@@ -96,7 +96,6 @@ class Place(object):
                  self.NUTS3_region_id))
 
     def insert_fts_stmt(self):
-        return (u"INSERT INTO places_fts (id, type_id, name) VALUES (?, ?, ?)",
+        return (u"INSERT INTO places_fts (id, name) VALUES (?, ?)",
                 (self.id,
-                 self.type_id,
                  self.name))
