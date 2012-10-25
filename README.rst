@@ -37,3 +37,12 @@ Resurssit
 ---------
 
 - http://kartat.kapsi.fi/files/nimisto/paikannimet_kaikki/etrs89/
+
+Käytetyt kirjastot
+------------------
+
+- coordinates.py: Olli Lammin erinomainen kirjasto suomalaisten
+  koordinaattijärjestelmien muuntamiseen WGS84-muotoon,
+  <http://olammi.iki.fi/sw/coordinates_v1_0a.zip>, MIT-lisenssi
+- bottle.py: <http://bottlepy.org/>, MIT-lisenssi
+- docopt.py: <https://github.com/docopt/docopt>, MIT-lisenssi

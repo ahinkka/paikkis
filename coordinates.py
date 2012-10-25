@@ -6,9 +6,37 @@
 #
 # Author:          Olli Lammi
 #
-# Version:         0.8f
+# Version:         1.0a
 #
-# Date:            20.02.2012
+# Date:            25.10.2012
+#
+# License:         MIT License (http://opensource.org/licenses/MIT)
+#
+#                  Copyright (c) 2012 Olli Lammi (olammi@iki.fi)
+#
+#                  Permission is hereby granted, free of charge, to any 
+#                  person obtaining a copy of this software and associated 
+#                  documentation files (the "Software"), to deal in the 
+#                  Software without restriction, including without  
+#                  limitation the rights to use, copy, modify, merge,  
+#                  publish, distribute, sublicense, and/or sell copies of  
+#                  the Software, and to permit persons to whom the Software  
+#                  is furnished to do so, subject to the following
+#                  conditions: 
+#
+#                  The above copyright notice and this permission notice  
+#                  shall be included in all copies or substantial portions 
+#                  of the Software.
+#
+#                  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF 
+#                  ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED 
+#                  TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+#                  PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT 
+#                  SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+#                  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+#                  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+#                  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+#                  DEALINGS IN THE SOFTWARE.
 #
 # Functions:       Translate
 #                  KKJxy_to_WGS84lalo
@@ -32,75 +60,20 @@
 #                   
 # Description:     Coordinate system functions. 
 #
-#                  KKJ and ETRS-TM35FIN algorithms implemented by Olli Lammi
-#                  according to JHS 154.
+#                  KKJ and ETRS-TM35FIN algorithms implemented by 
+#                  Olli Lammi according to JHS 154.                  
 #                  (http://docs.jhs-suositukset.fi/jhs-suositukset/JHS154/JHS154.pdf)
 #
 #                  Google Maps functions developed based on knowledge on
-#                  multiple sites in the Internet, simplifying the algorithms
-#                  and traditional trial error method.
+#                  multiple sites in the Internet, simplifying the 
+#                  algorithms and traditional trial error method.
 # 
-#                  NOTE!: The KKJ and ETRS-TM35FIN coordinate functions are developed 
-#                  to work only with coordinates that are in the area of Finland.
+#                  NOTE!: The KKJ and ETRS-TM35FIN coordinate functions  
+#                  are developed to work only with coordinates that are in 
+#                  the area of Finland.
 #
-# Version history: ** 05.09.2005 v0.1a (Olli Lammi) **
-#                  First version. Translated partially from PHP to Python.
-#                  Original PHP code source: www.viestikallio.fi
-# 
-#                  ** 26.09.2005 v0.2a (Olli Lammi) **
-#                  Included the WGS84_to_KKJxy -conversion.
-#                  Changed all interfaces to work with degrees when
-#                  using angle values
-#                  Altered the KKJ zone info function to a
-#                  lookup dictionary (KKJ_ZONE_INFO).
-#                  Added function to calculate propable KKJ band
-#                  from KKJ longitude (KKJ_Zone_Lo).
-#                  
-#                  ** 01.10.2005 v0.3a (Olli Lammi) **
-#                  Small changes to function interfaces.
-#
-#                  ** 14.10.2005 v0.4a (Olli Lammi) **
-#                  Added support for KKJ-bands 0 and 5.
-#
-#                  ** 26.01.2007 v0.5a (Olli Lammi) **
-#                  Added prototype function to convert WGS84-coordinates
-#                  to Google Maps URL tile parameter x and y.
-#
-#                  ** 19.02.2008 v0.6a (Olli Lammi) **
-#                  Added funcion to convert WGS84 coordinate string to
-#                  scalar coordinate value.
-#
-#                  ** 25.02.2008 v0.7a (Olli Lammi) **
-#                  Added funcion to tell approximately whether given KKJ
-#                  koordinate is in the are of Finland.
-#
-#                  ** 08.08.2008 v0.7b (Olli Lammi) **
-#                  Added utility funcion to shift KKJxy coordinate to given 
-#                  zone: KKJxy_ZoneShift
-#
-#                  ** 10.02.2010 v0.8a (Olli Lammi) **
-#                  Added functions for ETRS-TM35FINxy to and from WGS84lalo 
-#                  conversions. Added coordinate translate method according
-#                  to type.
-#
-#                  ** 05.08.2010 v0.8b (Olli Lammi) **
-#                  Increased iteration area for Lon value in KKJxy_to_KKJlalo 
-#                  function. Added functions to calculate distance in meters
-#                  and initial and final bearing between two WGS84 locations.
-#
-#                  ** 03.02.2012 v0.8c (Olli Lammi) **
-#                  Unified the interface dictionary data names. 
-#
-#                  ** 05.02.2012 v0.8d (Olli Lammi) **
-#                  Changed the KKJxy_in_Finland algorithm to more accurate
-#                  polygon. (*** Polygon still an approximation  of Finland ***) 
-#
-#                  ** 10.02.2012 v0.8e (Olli Lammi) **
-#                  Corrected YKJ transform to accept over band coordinates. 
-#
-#                  ** 20.02.2012 v0.8f (Olli Lammi) **
-#                  Completely rewrote KKJ coordinate transforms according to 
-#                  JHS154 and JHS153. 
+# Version history: ** 25.10.2012 v1.0a (Olli Lammi) **
+#                  Published the rewritten version under MIT License. 
 #
 ###########################################################################
 
