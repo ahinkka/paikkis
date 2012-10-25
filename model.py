@@ -86,37 +86,17 @@ class Place(object):
     def insert_stmt(self):
         return (u"INSERT INTO places (name, municipality_id, id, lat, lon, type_id, sub_region_id, NUTS2_region_id, NUTS3_region_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (self.name,
-                  self.municipality_id,
-                  self.id,
-                  self.lat,
-                  self.lon,
-                  self.type_id,
-                  self.sub_region_id,
-                  self.NUTS2_region_id,
-                  self.NUTS3_region_id))
+                 self.municipality_id,
+                 self.id,
+                 self.lat,
+                 self.lon,
+                 self.type_id,
+                 self.sub_region_id,
+                 self.NUTS2_region_id,
+                 self.NUTS3_region_id))
 
-
-if __name__ == '__main__':
-    conn = sqlite3.connect(sys.argv[2])
-    c = conn.cursor()
-    c.execute('''CREATE TABLE places
-                 (name text, municipality_id int, id int, lat float, lon float, type_id int, sub_region_id int, NUTS2_region_id int, NUTS3_region_id int)''')
-    c.execute('''CREATE INDEX name_idx ON places (name)''')
-    c.execute('''CREATE VIRTUAL TABLE places_fts USING fts3(name, id, type_id);''')
-    conn.commit()
-
-    with codecs.open(sys.argv[1], 'r', encoding='iso-8859-10') as f:
-        for linenum, line in enumerate(f):
-            parts = [item.strip() for item in line.replace("\n", "").split(";") if len(item) > 0]
-
-            p = Place(parts)
-            c.execute(*p.insert_stmt())
-            c.execute(u"INSERT INTO places_fts (id, type_id, name) VALUES (?, ?, ?)", (p.id, p.type_id, p.name))
-
-            # print(p, file=o8)
-
-            if linenum % 10000 == 0:
-                conn.commit()
-                print(u"# {0}...".format(linenum))
-
-        conn.commit()
+    def insert_fts_stmt(self):
+        return (u"INSERT INTO places_fts (id, type_id, name) VALUES (?, ?, ?)",
+                (self.id,
+                 self.type_id,
+                 self.name))
