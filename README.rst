@@ -46,3 +46,9 @@ Käytetyt kirjastot
   <http://olammi.iki.fi/sw/coordinates_v1_0a.zip>, MIT-lisenssi
 - bottle.py: <http://bottlepy.org/>, MIT-lisenssi
 - docopt.py: <https://github.com/docopt/docopt>, MIT-lisenssi
+
+
+Lisenssi
+--------
+
+MIT-lisenssi, katso tiedosto LICENSE.
