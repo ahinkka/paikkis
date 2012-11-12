@@ -7,22 +7,25 @@ Käyttöohjeet
 ------------
 Komennot tottelevat -h ja --help -parametrejä.
 
-::
-    
-    # Luo tietokanta (kestää mulla vartin)
-    ./paikkis build
-    # Tee haku (full-text -indeksi)
-    ./paikkis search hakusana(t)
-
 
 Web-API:
 ::
 
-    # Käynnistys (tietokanta täytyy olla ensin luotuna)
-    ./webapp.py
+    # http://api.paikkis.fi/versio/pois.json\?parametrit  esim:
+    http://api.paikkis.fi/v1/pois.json?filter=Kourilehto
+
+
+Asennus:
+::
+
+    # Luo tietokanta (kestää hetken)
+    ./paikkis build
+    # Tee haku (full-text -indeksi)
+    ./paikkis search hakusana(t)
     # Eri terminaalissa:
     curl http://localhost:8022/v1/pois.json\?filter\=Kourilehto | python -mjson.tool
-    # Haku ei toimi ilman filter-parametria, vaan palauttaa 501-statuksen.    
+    # Haku ei toimi ilman filter-parametria, vaan palauttaa 501-statuksen.
+
 
 TODO
 ----
@@ -37,6 +40,8 @@ Resurssit
 ---------
 
 - http://kartat.kapsi.fi/files/nimisto/paikannimet_kaikki/etrs89/
+- Paikkatyypit (type_id): http://paikkis.fi/paikkatyypit.txt
+- Kuntien koodit (municipality_id): http://www.tilastokeskus.fi/meta/luokitukset/kunta/001-2012/index.html
 
 Käytetyt kirjastot
 ------------------

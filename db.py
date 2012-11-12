@@ -48,7 +48,7 @@ def build(input, database, verbose):
         conn.commit()
 
 FTS_QUERY = \
-        u"""SELECT p.id, f.name, p.lat, p.lon, p.type_id
+        u"""SELECT p.id, f.name, p.lat, p.lon, p.type_id, p.municipality_id
                 FROM places_fts AS f, places AS p
                 WHERE f.name MATCH ? || '*' AND f.id = p.id"""
 
@@ -65,7 +65,7 @@ def search(database, verbose, query):
         result.append({ 'id': row[0],
                         'name': row[1],
                         'lat': row[2], 'lon': row[3],
-                        'type_id': row[4] })
+                        'type_id': row[4], 'municipality_id': row[5] })
     return result
 
 INFO_QUERY = \
