@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import json
+import re
 import traceback
 from bottle import route, run, get, request, response, abort
 from db import search, info
@@ -13,6 +14,8 @@ def pois_v1():
     filter = request.query.get('filter', None)
     if filter is None:
         abort(501, "Unfiltered searches not allowed.")
+
+    filter = re.sub('[\W_]+', ',', filter)
 
     result = search(database=_db, verbose=False, query=filter)
     response.content_type = 'application/json'
