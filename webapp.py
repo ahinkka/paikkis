@@ -16,12 +16,9 @@ municipalities_set = set([m.lower() for m in municipalities.itervalues()])
 def pois_v1():
     global _db
 
-    filter_s = request.query.get('filter', None)
+    filter_s = unicode(request.query.get('filter', None), encoding='utf-8')
     if filter_s is None:
         abort(501, "Unfiltered searches not allowed.")
-
-    original_filter = filter_s
-    filter_s = re.sub('[\W_]+', ',', filter_s)
 
     result = search(database=_db, verbose=False, query=filter_s)
 
@@ -44,7 +41,7 @@ def pois_v1():
 
         if int(result_count) != -1:
             for r in result:
-                distance = levenshtein(original_filter, r['name'])
+                distance = levenshtein(filter_s, r['name'])
                 r['edit_distance'] = distance
 
             result.sort(key=lambda x: x['edit_distance'])
